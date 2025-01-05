@@ -7,7 +7,7 @@ This is for development only. When ready for Stage and Prod, we will use a CDN i
 ## Roadmap for an AWS S3 deployment scenario
 To achieve the goal of hosting videos in an AWS S3 bucket and making them accessible on a cellphone via a browser or app, served efficiently through AWS CloudFront, here’s a step-by-step plan:
 
-1. Store Videos in an S3 Bucket
+### Store Videos in an S3 Bucket
 
 Steps:
 	1.	Create an S3 Bucket:
@@ -19,7 +19,7 @@ Steps:
 	3.	Enable Static Hosting (Optional):
 	•	Configure the bucket to serve static content if you want direct access via URLs (not recommended for secure content).
 
-2. Set Up AWS CloudFront
+### Set Up AWS CloudFront
 
 Why CloudFront?
 	•	CloudFront acts as a CDN to cache and distribute content globally, ensuring low-latency access.
@@ -38,7 +38,7 @@ Steps:
 	3.	Obtain Distribution Domain:
 	•	CloudFront provides a domain (e.g., d1234abcd.cloudfront.net) for accessing your content.
 
-3. Develop the App or Browser Interface
+### Develop the App or Browser Interface
 
 Options:
 	1.	Web App (HTML + JavaScript):
@@ -67,7 +67,7 @@ Example Code for Browser:
 </html>
 ```
 
-4. Secure Content Delivery
+### Secure Content Delivery
 
 Options:
 	1.	Signed URLs:
@@ -98,7 +98,7 @@ print("Signed URL:", url)
 	3.	IAM Roles:
 	•	Use AWS Amplify or SDKs for authenticated access.
 
-5. Optimize for Mobile
+### Optimize for Mobile
 
 Key Considerations:
 	1.	Adaptive Streaming:
@@ -108,7 +108,7 @@ Key Considerations:
 	3.	Preloading & Lazy Loading:
 	•	Optimize loading times by preloading or lazy-loading videos.
 
-6. Monitor and Optimize
+### Monitor and Optimize
 	1.	CloudWatch Metrics:
 	•	Monitor usage and performance.
 	2.	CloudFront Logs:
