@@ -12,42 +12,43 @@ To achieve the goal of hosting videos in an AWS S3 bucket and making them access
 Steps:
 
 1.	Create an S3 Bucket:
-	•	Name your bucket (e.g., my-video-bucket).
-	•	Enable public access only if required for demo purposes; otherwise, use signed URLs or OAI (Origin Access Identity) for secure access.
+- Name your bucket (e.g., my-video-bucket).
+- Enable public access only if required for demo purposes; otherwise, use signed URLs or OAI (Origin Access Identity) for secure access.
 2.	Upload Videos:
-	•	Upload .mp4 videos to the bucket.
-	•	Set appropriate permissions.
+- Upload .mp4 videos to the bucket.
+- Set appropriate permissions.
 3.	Enable Static Hosting (Optional):
-	•	Configure the bucket to serve static content if you want direct access via URLs (not recommended for secure content).
+- Configure the bucket to serve static content if you want direct access via URLs (not recommended for secure content).
 
 ### Set Up AWS CloudFront
 
 Why CloudFront?
-	•	CloudFront acts as a CDN to cache and distribute content globally, ensuring low-latency access.
-	•	It integrates seamlessly with S3.
+- CloudFront acts as a CDN to cache and distribute content globally, ensuring low-latency access.
+- It integrates seamlessly with S3.
 
 Steps:
-	1.	Create a CloudFront Distribution:
-	•	Origin: Select your S3 bucket as the origin.
-	•	Cache Settings: Optimize for video streaming.
-	•	Viewer Protocol Policy: Enforce HTTPS for secure content delivery.
-	•	Add OAI (Origin Access Identity): Restrict bucket access to CloudFront.
-	2.	Configure Behavior:
-	•	Set allowed HTTP methods (GET, HEAD).
-	•	Enable caching policies for efficient delivery.
-	•	Use signed URLs for secure access to private content.
-	3.	Obtain Distribution Domain:
-	•	CloudFront provides a domain (e.g., d1234abcd.cloudfront.net) for accessing your content.
+
+1.	Create a CloudFront Distribution:
+- Origin: Select your S3 bucket as the origin.
+- Cache Settings: Optimize for video streaming.
+- Viewer Protocol Policy: Enforce HTTPS for secure content delivery.
+- Add OAI (Origin Access Identity): Restrict bucket access to CloudFront.
+2.	Configure Behavior:
+- Set allowed HTTP methods (GET, HEAD).
+- Enable caching policies for efficient delivery.
+- Use signed URLs for secure access to private content.
+3.	Obtain Distribution Domain:
+- CloudFront provides a domain (e.g., d1234abcd.cloudfront.net) for accessing your content.
 
 ### Develop the App or Browser Interface
 
 Options:
-	1.	Web App (HTML + JavaScript):
-	•	Use HTML5 <video> for video playback.
-	•	JavaScript can dynamically load video sources (useful for signed URLs or playlists).
-	2.	Mobile App:
-	•	React Native / Flutter: Build a cross-platform app.
-	•	Use SDKs (like AWS Amplify) to fetch videos from S3 securely.
+1.	Web App (HTML + JavaScript):
+- Use HTML5 <video> for video playback.
+- JavaScript can dynamically load video sources (useful for signed URLs or playlists).
+2.	Mobile App:
+- React Native / Flutter: Build a cross-platform app.
+- Use SDKs (like AWS Amplify) to fetch videos from S3 securely.
 
 Example Code for Browser:
 ```html
