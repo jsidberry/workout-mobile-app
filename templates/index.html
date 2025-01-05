@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Video Player</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            color: #00bcd4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px); /* Adjust for header and margins */
+            padding: 10px;
+        }
+
+        video {
+            height: 100%;
+            aspect-ratio: 888 / 1920; /* Maintain portrait aspect ratio */
+            border: 2px solid #fff;
+            background: #000; /* Fallback background for video container */
+        }
+    </style>
+</head>
+<body>
+    <h1>Mobile Video Player</h1>
+    <ul>
+        {% for video in video_files %}
+        <li>
+            <a href="/videos/{{ video }}" onclick="playVideo(event, '{{ video }}')">{{ video }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="video-container">
+        <video id="video_player" controls>
+            <source id="video_source" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <script>
+        function playVideo(event, video) {
+            event.preventDefault();
+            const videoSource = document.getElementById('video_source');
+            const videoPlayer = document.getElementById('video_player');
+            videoSource.src = `/videos/${video}`;
+            videoPlayer.load();
+            videoPlayer.play();
+        }
+    </script>
+</body>
+</html>
