@@ -73,8 +73,8 @@ Options:
 	1.	Signed URLs:
 	•	Generate short-lived URLs to allow secure access.
 	•	Python Example:
-    ```python
-    import boto3
+```python
+import boto3
 from botocore.signers import CloudFrontSigner
 import rsa
 import datetime
