@@ -29,26 +29,26 @@ Why CloudFront?
 Steps:
 
 1.	Create a CloudFront Distribution:
-- Origin: Select your S3 bucket as the origin.
-- Cache Settings: Optimize for video streaming.
-- Viewer Protocol Policy: Enforce HTTPS for secure content delivery.
-- Add OAI (Origin Access Identity): Restrict bucket access to CloudFront.
+    - Origin: Select your S3 bucket as the origin.
+    - Cache Settings: Optimize for video streaming.
+    - Viewer Protocol Policy: Enforce HTTPS for secure content delivery.
+    - Add OAI (Origin Access Identity): Restrict bucket access to CloudFront.
 2.	Configure Behavior:
-- Set allowed HTTP methods (GET, HEAD).
-- Enable caching policies for efficient delivery.
-- Use signed URLs for secure access to private content.
+    - Set allowed HTTP methods (GET, HEAD).
+    - Enable caching policies for efficient delivery.
+    - Use signed URLs for secure access to private content.
 3.	Obtain Distribution Domain:
-- CloudFront provides a domain (e.g., d1234abcd.cloudfront.net) for accessing your content.
+    - CloudFront provides a domain (e.g., d1234abcd.cloudfront.net) for accessing your content.
 
 ### Develop the App or Browser Interface
 
 Options:
 1.	Web App (HTML + JavaScript):
-- Use HTML5 <video> for video playback.
-- JavaScript can dynamically load video sources (useful for signed URLs or playlists).
+    - Use HTML5 <video> for video playback.
+    - JavaScript can dynamically load video sources (useful for signed URLs or playlists).
 2.	Mobile App:
-- React Native / Flutter: Build a cross-platform app.
-- Use SDKs (like AWS Amplify) to fetch videos from S3 securely.
+    - React Native / Flutter: Build a cross-platform app.
+    - Use SDKs (like AWS Amplify) to fetch videos from S3 securely.
 
 Example Code for Browser:
 ```html
@@ -72,9 +72,9 @@ Example Code for Browser:
 ### Secure Content Delivery
 
 Options:
-	1.	Signed URLs:
-	•	Generate short-lived URLs to allow secure access.
-	•	Python Example:
+1.	Signed URLs:
+	- Generate short-lived URLs to allow secure access.
+	- Python Example:
 ```python
 import boto3
 from botocore.signers import CloudFrontSigner
@@ -95,27 +95,27 @@ url = cloudfront_signer.generate_presigned_url(
 
 print("Signed URL:", url)
 ```
-    2.	Bucket Policies:
-	•	Restrict access to CloudFront or specific users.
-	3.	IAM Roles:
-	•	Use AWS Amplify or SDKs for authenticated access.
+2.	Bucket Policies:
+	- Restrict access to CloudFront or specific users.
+3.	IAM Roles:
+	- Use AWS Amplify or SDKs for authenticated access.
 
 ### Optimize for Mobile
 
 Key Considerations:
-	1.	Adaptive Streaming:
-	•	Use AWS Elemental MediaConvert to convert videos into HLS/DASH formats for adaptive streaming.
-	2.	Responsive Design:
-	•	Ensure video players adapt to screen size and orientation.
-	3.	Preloading & Lazy Loading:
-	•	Optimize loading times by preloading or lazy-loading videos.
+1.	Adaptive Streaming:
+	- Use AWS Elemental MediaConvert to convert videos into HLS/DASH formats for adaptive streaming.
+2.	Responsive Design:
+	- Ensure video players adapt to screen size and orientation.
+3.	Preloading & Lazy Loading:
+	- Optimize loading times by preloading or lazy-loading videos.
 
 ### Monitor and Optimize
-	1.	CloudWatch Metrics:
-	•	Monitor usage and performance.
-	2.	CloudFront Logs:
-	•	Analyze access patterns.
-	3.	Cost Optimization:
-	•	Use storage classes like S3 Intelligent-Tiering for infrequently accessed videos.
+1.	CloudWatch Metrics:
+	- Monitor usage and performance.
+2.	CloudFront Logs:
+	- Analyze access patterns.
+3.	Cost Optimization:
+	- Use storage classes like S3 Intelligent-Tiering for infrequently accessed videos.
 
 This roadmap allows flexibility in development and security, ensuring smooth delivery of videos to cellphones via an app or browser.
