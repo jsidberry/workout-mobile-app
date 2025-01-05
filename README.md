@@ -10,13 +10,14 @@ To achieve the goal of hosting videos in an AWS S3 bucket and making them access
 ### Store Videos in an S3 Bucket
 
 Steps:
-	1.	Create an S3 Bucket:
+
+1.	Create an S3 Bucket:
 	•	Name your bucket (e.g., my-video-bucket).
 	•	Enable public access only if required for demo purposes; otherwise, use signed URLs or OAI (Origin Access Identity) for secure access.
-	2.	Upload Videos:
+2.	Upload Videos:
 	•	Upload .mp4 videos to the bucket.
 	•	Set appropriate permissions.
-	3.	Enable Static Hosting (Optional):
+3.	Enable Static Hosting (Optional):
 	•	Configure the bucket to serve static content if you want direct access via URLs (not recommended for secure content).
 
 ### Set Up AWS CloudFront
