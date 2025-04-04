@@ -203,3 +203,6 @@ override.tf.json
 
 # Project Specific Exceptions
 static/videos/*
+
+# macos stuff
+.DS_Store
