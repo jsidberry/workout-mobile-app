@@ -170,5 +170,36 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+# Local Terraform directories and files
+.terraform/
+.terraform.lock.hcl
+
+# Terraform plan and state files
+terraform.tfstate
+terraform.tfstate.backup
+*.tfplan
+
+# Crash logs
+crash.log
+
+# Sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Log and archive files
+*.log
+*.zip
+
+# Ignore IDE files (if applicable)
+.vscode/
+.idea/
+*.iml
+
 # Project Specific Exceptions
 static/videos/*
